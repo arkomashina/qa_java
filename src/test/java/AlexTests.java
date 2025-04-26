@@ -1,5 +1,3 @@
-package Tests;
-
 import com.example.Alex;
 import com.example.Feline;
 import org.junit.Assert;

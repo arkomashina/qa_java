@@ -1,5 +1,3 @@
-package Tests;
-
 import com.example.Cat;
 import com.example.Feline;
 import org.junit.Assert;
@@ -26,5 +24,7 @@ public class CatTests {
     public void getFoodIsInvoked() throws Exception{
         Cat cat = new Cat(feline);
         Mockito.when(cat.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        List<String> actual = cat.getFood();
+        Assert.assertEquals("Кот ест не то, что должен", List.of("Животные", "Птицы", "Рыба"), actual);
     }
 }

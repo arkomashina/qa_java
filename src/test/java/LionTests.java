@@ -1,5 +1,3 @@
-package Tests;
-
 import com.example.Feline;
 import com.example.Lion;
 import org.junit.Assert;
@@ -30,5 +28,16 @@ public class LionTests {
         List<String> actual = lion.getFood();
         Assert.assertEquals("Хищники едят не это", actual, List.of("Животные", "Птицы", "Рыба"));
     }
+
+    @Test
+    public void lionConstructorThrowsExceptionWhenSexIsInvalid() {
+        try {
+            new Lion("Другое");
+
+        } catch (Exception e) {
+            Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", e.getMessage());
+        }
+    }
+
 
 }
