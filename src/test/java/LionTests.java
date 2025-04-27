@@ -14,9 +14,9 @@ public class LionTests {
     Feline feline;
 
     @Test
-    public void getKittensTest(){
+    public void getKittensTest() throws Exception {
         Mockito.when(feline.getKittens()).thenReturn(3);
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самец", feline);
         int actual = lion.getKittens();
         Assert.assertEquals("Метод не был вызван", 3, actual);
     }
@@ -24,15 +24,15 @@ public class LionTests {
     @Test
     public void getFoodTestIfPredator() throws Exception {
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самец", feline);
         List<String> actual = lion.getFood();
         Assert.assertEquals("Хищники едят не это", actual, List.of("Животные", "Птицы", "Рыба"));
     }
 
     @Test
-    public void lionConstructorThrowsExceptionWhenSexIsInvalid() {
+    public void lionConstructorThrowsExceptionWhenSexIsInvalid() throws Exception{
         try {
-            new Lion("Другое");
+            new Lion("Другое", feline);
 
         } catch (Exception e) {
             Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", e.getMessage());

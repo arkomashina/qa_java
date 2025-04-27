@@ -18,24 +18,24 @@ public class AlexTests {
 
     @Before
     public void createAnObjectAlex() throws Exception{
-        alex = new Alex(feline);
+        alex = new Alex("Самец", feline);
     }
 
 
     @Test
-    public void alexGetFriendsTest() throws Exception {
+    public void alexGetFriendsTest() {
         List<String> actual = alex.getFriends();
         Assert.assertEquals("Кого-то из друзей не хватает", List.of("Марти", "Глория", "Мелман"), actual);
     }
 
     @Test
-    public void alexGetKittensTest() throws Exception {
+    public void alexGetKittensTest() {
         int actual = alex.getKittens();
         Assert.assertEquals("У Алекса не должно быть детей", 0, actual);
     }
 
     @Test
-    public void alexGetPlaceOfLiving() throws Exception{
+    public void alexGetPlaceOfLiving() {
         String actual = alex.getPlaceOfLiving();
         Assert.assertEquals("Алекс живёт не там", "Нью-Йоркский зоопарк", actual);
 
